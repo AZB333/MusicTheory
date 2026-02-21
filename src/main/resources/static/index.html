@@ -1,27 +1,79 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="utf-8" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Music Theory Website</title>
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet">
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <title>Demo</title>
-    <meta name="description" content="" />
-    <meta name="viewport" content="width=device-width" />
     <link rel="stylesheet" href="css/style.css">
     <base href="/" />
 </head>
-
 <body>
-<header>
-    <h1>Demo</h1>
-</header>
-<main>
-    <div class="container">
-        <div id="greeting">this should be localhost8080/</div>
-        <a href="/greeting">greeting</a>
-    </div>
-</main>
+<div class="container">
+    <header>
+        <h1>Music Theory Website</h1>
+    </header>
 
+    <nav>
+        <ul>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="/greeting">About</a></li>
+        </ul>
+    </nav>
+
+    <!-- Projects Section -->
+    <section id="projects">
+        <div class="section-header">
+            <h2>Projects</h2>
+            <p class="section-description">
+                A collection of websites and web applications I've built, ranging from experimental concepts to production-ready platforms.
+            </p>
+        </div>
+
+        <div class="projects-grid">
+            <div class="project-card">
+                <span class="project-tag">Web App</span>
+                <h3>Chord Guesser</h3>
+                <p>A web application that helps users train their musical ear by guessing chord progressions. Likewise, users can play a chord and the computer identifies it.</p>
+                <div class="project-links">
+                    <a target="_blank" href="https://aleqzander.com/ChordGuessLandingPage/" class="btn btn-primary">View Live →</a>
+                    <a target="_blank" href="https://github.com/AZB333/ChordGuesser" class="btn btn-secondary">Source Code</a>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <span class="project-tag">Dashboard</span>
+                <h3>Third Project</h3>
+                <p>Your third project description. What was your role? What did you learn? What technologies powered it?</p>
+                <div class="project-links">
+                    <a href="#" class="btn btn-primary">View Live →</a>
+                    <a href="#" class="btn btn-secondary">Source Code</a>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <span class="project-tag">API</span>
+                <h3>Another Project</h3>
+                <p>Details about this project, its purpose, and the technology stack used to bring it to life.</p>
+                <div class="project-links">
+                    <a href="#" class="btn btn-primary">View Live →</a>
+                    <a href="#" class="btn btn-secondary">Source Code</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="social-links">
+            <a target="_blank" href="https://github.com/azb333">GitHub</a>
+            <a target="_blank" href="https://www.linkedin.com/in/aleqzanderbaker/">LinkedIn</a>
+            <a href="#">Email</a>
+        </div>
+    </footer>
+</div>
+
+<script src=""></script>
 </body>
-
 </html>
