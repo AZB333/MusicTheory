@@ -1,4 +1,4 @@
-package org.example.musictheory;
+package musictheory.springboot;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
