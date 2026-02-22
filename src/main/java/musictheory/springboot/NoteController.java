@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class NoteController {
 
     @GetMapping("/note")
-    public Note getNote(@RequestParam String name, @RequestParam Integer octave) {
+    public Note getNote(@RequestParam String name) {
         NoteFactory noteFactory = new NoteFactory();
         return noteFactory.createNote(name);
     }
