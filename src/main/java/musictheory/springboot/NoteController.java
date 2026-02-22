@@ -2,20 +2,16 @@ package musictheory.springboot;
 
 import musictheory.notes.Note;
 import musictheory.notes.NoteFactory;
-import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
 
-@Controller
+@RestController
 public class NoteController {
 
-    @GetMapping("/notefetch")
-    public String getNote(String name, Integer octave, Model model) {
+    @GetMapping("/note")
+    public Note getNote(@RequestParam String name, @RequestParam Integer octave) {
         NoteFactory noteFactory = new NoteFactory();
-        Note cNote = noteFactory.createNote("C", 4);
-        model.addAttribute("name", cNote.getName());
-        model.addAttribute("octave", cNote.getOctave());
-        return "notefetch";
+        return noteFactory.createNote(name, octave);
     }
-
 }
