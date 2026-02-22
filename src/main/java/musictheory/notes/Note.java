@@ -3,24 +3,24 @@ package musictheory.notes;
 abstract public class Note {
     private final String name;
     private final String audioFilePath;
-    private final Integer octave;
+//    private final Integer octave;
     private final Integer midiValue;
 
-    public Note(String name, Integer octave){
+    public Note(String name){
         this.name = name;
-        this.octave = octave;
-        this.audioFilePath = findAudioFile(name, octave);
-        this.midiValue = midiValueOf(name, octave);
+//        this.octave = octave;
+        this.audioFilePath = findAudioFile(name);
+        this.midiValue = midiValueOf(name);
     }
 
-    public String findAudioFile(String noteName, Integer octave){
+    public String findAudioFile(String noteName){
         return "$e${d}";
     }
 
-    public Integer midiValueOf(String name, Integer Octave){
+    public Integer midiValueOf(String name){
         return 12;
     }
 
     public String getName() {return name;}
-    public Integer getOctave() {return octave;}
+//    public Integer getOctave() {return octave;}
 }

@@ -12,6 +12,6 @@ public class NoteController {
     @GetMapping("/note")
     public Note getNote(@RequestParam String name, @RequestParam Integer octave) {
         NoteFactory noteFactory = new NoteFactory();
-        return noteFactory.createNote(name, octave);
+        return noteFactory.createNote(name);
     }
 }
