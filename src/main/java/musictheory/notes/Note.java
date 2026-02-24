@@ -1,14 +1,15 @@
 package musictheory.notes;
 
-abstract public class Note {
+public class Note {
     private final String name;
     private final String audioFilePath;
-//    private final Integer octave;
     private final Integer midiValue;
 
     public Note(String name){
-        this.name = name;
-//        this.octave = octave;
+        switch(name) {
+            case ("C"), ("Db"), ("D"), ("Eb"), ("E"), ("F"), ("Gb"), ("G"), ("Ab"), ("A"), ("Bb"), ("B") -> this.name = name;
+            default -> throw new IllegalArgumentException("Not a valid note");
+        };
         this.audioFilePath = findAudioFile(name);
         this.midiValue = midiValueOf(name);
     }
@@ -22,5 +23,4 @@ abstract public class Note {
     }
 
     public String getName() {return name;}
-//    public Integer getOctave() {return octave;}
 }

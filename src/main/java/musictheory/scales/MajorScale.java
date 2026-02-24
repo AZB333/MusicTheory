@@ -20,7 +20,7 @@ public class MajorScale extends Scale{
 
         for (int interval : scaleInterval) {
             ChromaticScale chromNote = ChromaticScale.values()[currentIndex % CHROMATIC_SCALE_SIZE];
-            builtScale.add(NoteFactory.createNote(chromNote.name()));
+            builtScale.add(new Note(chromNote.name()));
 
             currentIndex += interval;
         }

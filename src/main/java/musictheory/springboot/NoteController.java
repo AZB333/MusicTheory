@@ -1,7 +1,6 @@
 package musictheory.springboot;
 
 import musictheory.notes.Note;
-import musictheory.notes.NoteFactory;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -11,7 +10,6 @@ public class NoteController {
 
     @GetMapping("/note")
     public Note getNote(@RequestParam String name) {
-        NoteFactory noteFactory = new NoteFactory();
-        return noteFactory.createNote(name);
+        return new Note(name);
     }
 }
