@@ -9,10 +9,10 @@ public class ScaleFactory {
 
     public ScaleFactory(){}
 
-    public Scale createScale(String root, String scaleType){
+    public static Scale createScale(String root, String scaleType){
         if(Objects.equals(scaleType, "Major")){
             return new MajorScale(root);
         }
-        return new MajorScale(root);
+        throw new IllegalArgumentException("Not a valid scale");
     }
 }

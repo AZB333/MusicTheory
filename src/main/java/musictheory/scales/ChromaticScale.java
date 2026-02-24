@@ -5,6 +5,7 @@ public enum ChromaticScale {
     Db,
     D,
     Eb,
+    E,
     F,
     Gb,
     G,
