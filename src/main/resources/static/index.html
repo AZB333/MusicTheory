@@ -17,54 +17,72 @@
 
     <nav>
         <ul>
-            <li><a href="#projects">Projects</a></li>
-            <li><a href="/greeting">About</a></li>
+            <li><a href="/notefetch.html">Note Fetch</a></li>
+            <li><a href="/scaledisplay.html">Scale Display</a></li>
         </ul>
     </nav>
 
-    <!-- Projects Section -->
-    <section id="projects">
-        <div class="section-header">
-            <h2>Projects</h2>
-            <p class="section-description">
-                A collection of websites and web applications I've built, ranging from experimental concepts to production-ready platforms.
-            </p>
+    <!-- Piano Keyboard -->
+    <div class="piano-container">
+        <div class="piano-wrapper">
+            <ul class="piano">
+                <li class="key">
+                    <span onclick="playNote('C3.wav')" class="white-key" id="C3-key"></span>
+                    <span onclick="playNote('audiofiles/Db3.wav')" class="black-key" id="Cs3-key"></span>
+                </li>
+                <li class="key">
+                    <span onclick="playNote('audiofiles/D3.wav')" class="white-key" id="D3-key"></span>
+                    <span onclick="playNote('audiofiles/Eb3.wav')" class="black-key" id="Ds3-key"></span>
+                </li>
+                <li class="key">
+                    <span onclick="playNote('audiofiles/E3.wav')" class="white-key" id="E3-key"></span>
+                </li>
+                <li class="key">
+                    <span onclick="playNote('F3.wav')" class="white-key" id="F3-key"></span>
+                    <span onclick="playNote('Fs3.wav')" class="black-key" id="Fs3-key"></span>
+                </li>
+                <li class="key">
+                    <span onclick="playNote('G3.wav')" class="white-key" id="G3-key"></span>
+                    <span onclick="playNote('Gs3.wav')" class="black-key" id="Gs3-key"></span>
+                </li>
+                <li class="key">
+                    <span onclick="playNote('A3.wav')" class="white-key" id="A3-key"></span>
+                    <span onclick="playNote('As3.wav')" class="black-key" id="As3-key"></span>
+                </li>
+                <li class="key">
+                    <span onclick="playNote('B3.wav')" class="white-key" id="B3-key"></span>
+                </li>
+                <li class="key">
+                    <span onclick="playNote('C4.wav')" class="white-key" id="C4-key"></span>
+                    <span onclick="playNote('Cs4.wav')" class="black-key" id="Cs4-key"></span>
+                </li>
+                <li class="key">
+                    <span onclick="playNote('D4.wav')" class="white-key" id="D4-key"></span>
+                    <span onclick="playNote('Ds4.wav')" class="black-key" id="Ds4-key"></span>
+                </li>
+                <li class="key">
+                    <span onclick="playNote('E4.wav')" class="white-key" id="E4-key"></span>
+                </li>
+                <li class="key">
+                    <span onclick="playNote('F4.wav')" class="white-key" id="F4-key"></span>
+                    <span onclick="playNote('Fs4.wav')" class="black-key" id="Fs4-key"></span>
+                </li>
+                <li class="key">
+                    <span onclick="playNote('G4.wav')" class="white-key" id="G4-key"></span>
+                    <span onclick="playNote('Gs4.wav')" class="black-key" id="Gs4-key"></span>
+                </li>
+                <li class="key">
+                    <span onclick="playNote('A4.wav')" class="white-key" id="A4-key"></span>
+                    <span onclick="playNote('As4.wav')" class="black-key" id="As4-key"></span>
+                </li>
+                <li class="key">
+                    <span onclick="playNote('B4.wav')" class="white-key" id="B4-key"></span>
+                </li>
+            </ul>
         </div>
+    </div>
 
-        <div class="projects-grid">
-            <div class="project-card">
-                <span class="project-tag">Web App</span>
-                <h3>Chord Guesser</h3>
-                <p>A web application that helps users train their musical ear by guessing chord progressions. Likewise, users can play a chord and the computer identifies it.</p>
-                <div class="project-links">
-                    <a target="_blank" href="https://aleqzander.com/ChordGuessLandingPage/" class="btn btn-primary">View Live →</a>
-                    <a target="_blank" href="https://github.com/AZB333/ChordGuesser" class="btn btn-secondary">Source Code</a>
-                </div>
-            </div>
 
-            <div class="project-card">
-                <span class="project-tag">Dashboard</span>
-                <h3>Third Project</h3>
-                <p>Your third project description. What was your role? What did you learn? What technologies powered it?</p>
-                <div class="project-links">
-                    <a href="#" class="btn btn-primary">View Live →</a>
-                    <a href="#" class="btn btn-secondary">Source Code</a>
-                </div>
-            </div>
-
-            <div class="project-card">
-                <span class="project-tag">API</span>
-                <h3>Another Project</h3>
-                <p>Details about this project, its purpose, and the technology stack used to bring it to life.</p>
-                <div class="project-links">
-                    <a href="#" class="btn btn-primary">View Live →</a>
-                    <a href="#" class="btn btn-secondary">Source Code</a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
     <footer>
         <div class="social-links">
             <a target="_blank" href="https://github.com/azb333">GitHub</a>
@@ -74,6 +92,6 @@
     </footer>
 </div>
 
-<script src=""></script>
+<script src="/index.js"></script>
 </body>
 </html>

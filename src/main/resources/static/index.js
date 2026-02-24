@@ -10,6 +10,12 @@ function fetchNote() {
         });
 }
 
+function playNote(audioFile) {
+    const note = new Audio(audioFile);
+    note.currentTime = 0;
+    note.play();
+}
+
 
 function playAudio(){
     console.log("pressed");
