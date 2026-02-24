@@ -16,13 +16,6 @@ function playNote(audioFile) {
     note.play();
 }
 
-
-function playAudio(){
-    console.log("pressed");
-    const audio = new Audio('/audiofiles/vine-boom-sound-effect(chosic.com).mp3');
-    audio.play();
-}
-
 function fetchScale(){
     const root = document.getElementById('root').value;
     const scaleType = document.getElementById('scale-type').value;
@@ -32,5 +25,31 @@ function fetchScale(){
         .then(scale => {
             const noteNames = scale.notes.map(note => note.name).join('-');
             document.getElementById('result').innerHTML = `<p>${noteNames}</p>`;
+            displayOnPiano(scale);
         });
+}
+
+function displayOnPiano(scale){
+    const pianoKeys = document.querySelectorAll('ul.piano span');
+    const pianoKeyIds = Array.from(pianoKeys).map(pianoKey => pianoKey.id);
+    refreshKeys(pianoKeys);
+    let noteArray = [];
+    scale.notes.forEach(key => {noteArray.push(key.name)});
+    for (let i = 0; i < pianoKeyIds.length; i++) {
+        let noteName = pianoKeyIds[i].replace(/[0-9]+$/, "")
+        if (noteArray.includes(noteName)){
+            pianoKeys[i].style.background = "yellow";
+        }
+    }
+}
+
+function refreshKeys(pianoKeys){
+    for (let i = 0; i < pianoKeys.length; i++) {
+        if(pianoKeys[i].classList.contains("white-key")){
+            pianoKeys[i].style.background = "linear-gradient(180deg, #fefefe 0%, #e8e8e8 100%)";
+        }
+        else{
+            pianoKeys[i].style.background = "linear-gradient(180deg, #1a1a1a 0%, #000000 100%)";
+        }
+    }
 }
