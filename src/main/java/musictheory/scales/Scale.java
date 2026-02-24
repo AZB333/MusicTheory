@@ -18,7 +18,8 @@ abstract public class Scale {
 
     public abstract List<Note> buildScale();
     public List<Note> getNotes() {return notes;}
-    public ChromaticScale getNoteFromRoot(){
+    public String getRoot() {return root;}
+    protected ChromaticScale getNoteFromRoot(){
         return switch (root) {
             case ("C") -> ChromaticScale.C;
             case ("Db") -> ChromaticScale.Db;

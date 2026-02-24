@@ -24,7 +24,6 @@ public class MajorScale extends Scale{
 
             currentIndex += interval;
         }
-        System.out.println(builtScale);
         return builtScale;
     }
 }

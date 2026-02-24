@@ -1,4 +1,8 @@
 package musictheory.notes;
 
-public class DbNote {
+public class DbNote extends Note{
+
+    public DbNote() {
+        super("Db");
+    };
 }

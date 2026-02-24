@@ -7,7 +7,8 @@ import java.util.Objects;
 public class MajorScaleTest {
 
     @Test
-    public void testMajorScaleInterval(){
+    public void testMajorScaleConstructor(){
         MajorScale majorScale = new MajorScale("C");
+        assert(Objects.equals(majorScale.getRoot(), "C"));
     }
 }

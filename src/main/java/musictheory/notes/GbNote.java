@@ -1,4 +1,8 @@
 package musictheory.notes;
 
-public class GbNote {
+public class GbNote extends Note{
+
+    public GbNote() {
+        super("Gb");
+    };
 }

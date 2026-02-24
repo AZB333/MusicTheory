@@ -1,4 +1,8 @@
 package musictheory.notes;
 
-public class ANote {
+public class ANote extends Note{
+
+    public ANote() {
+        super("A");
+    };
 }
