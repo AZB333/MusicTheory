@@ -1,8 +1,5 @@
 function fetchNote() {
     const name = document.getElementById('name-input').value;
-    // const octave = document.getElementById('octave-input').value;
-
-    // fetch(`/note?name=${name}&octave=${octave}`)
     fetch(`/note?name=${name}`)
 
         .then(res => res.json())

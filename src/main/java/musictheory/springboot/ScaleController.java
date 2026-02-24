@@ -15,7 +15,6 @@ public class ScaleController {
 
     @GetMapping("/scale")
     public Scale getScale(@RequestParam String root, @RequestParam String scaleType) {
-        ScaleFactory scaleFactory = new ScaleFactory();
-        return scaleFactory.createScale(root, scaleType);
+        return ScaleFactory.createScale(root, scaleType);
     }
 }

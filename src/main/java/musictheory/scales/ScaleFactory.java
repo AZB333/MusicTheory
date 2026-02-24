@@ -10,7 +10,8 @@ public class ScaleFactory {
     public ScaleFactory(){}
 
     public static Scale createScale(String root, String scaleType){
-        if(Objects.equals(scaleType, "Major")){
+        scaleType = scaleType.toLowerCase();
+        if(Objects.equals(scaleType, "major")){
             return new MajorScale(root);
         }
         throw new IllegalArgumentException("Not a valid scale");
