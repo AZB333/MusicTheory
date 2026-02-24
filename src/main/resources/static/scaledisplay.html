@@ -29,28 +29,29 @@
 <label for="scale-type">Choose a scale type:</label>
 <select name="scale-type" id="scale-type">
     <option value="major" selected>Major</option>
-    <option value="minor" >Minor</option>
-    <option value="major-pentatonic">Major Pentatonic</option>
-    <option value="minor-pentatonic">Minor Pentatonic</option>
-    <option value="major-blues">Major Blues</option>
-    <option value="minor-blues">Minor Blues</option>
+    <option value="natural_minor" >Minor</option>
+    <option value="major_pentatonic">Major Pentatonic</option>
+    <option value="minor_pentatonic">Minor Pentatonic</option>
+    <option value="major_blues">Major Blues</option>
+    <option value="minor_blues">Minor Blues</option>
     <option value="diminished">Diminished</option>
     <option value="augmented">Augmented</option>
-    <option value="harmonic-minor">Harmonic Minor</option>
-    <option value="melodic-minor">Melodic Minor</option>
-    <option value="half-whole">Half Whole</option>
-    <option value="mode-text" disabled>Modal Options</option>
-    <option value="dorian">Whole Half</option>
-    <option value="phrygian">Whole Half</option>
-    <option value="lydian">Whole Half</option>
-    <option value="mixolydian">Whole Half</option>
-    <option value="locrian">Whole Half</option>
+    <option value="harmonic_minor">Harmonic Minor</option>
+    <option value="melodic_minor">Melodic Minor</option>
+    <option value="half_whole">Half Whole</option>
+    <option value="mode_text" disabled>Modal Options</option>
+    <option value="ionian">Ionian (Major)</option>
+    <option value="dorian">Dorian</option>
+    <option value="phrygian">Phrygian</option>
+    <option value="lydian">Lydian</option>
+    <option value="mixolydian">Mixolydian</option>
+    <option value="aeolian">Aeolian (Minor)</option>
+    <option value="locrian">Locrian</option>
 </select>
 
 <button onclick="fetchScale()">Get Scale</button>
 
 <div id="result"></div>
-<button id="audio-btn" onclick="playAudio()">play awesome audio</button>
 <script src="index.js"></script>
 </body>
 </html>

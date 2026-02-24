@@ -2,46 +2,33 @@ package musictheory.scales;
 
 import musictheory.notes.Note;
 
+import java.util.ArrayList;
 import java.util.List;
 
-abstract public class Scale {
+public class Scale {
     private final String root;
+    private final ScaleType scaleType;
     private final List<Note> notes;
-    public static final Integer CHROMATIC_SCALE_SIZE = 12;
-    public List<Integer> scaleInterval;
+    public static final int CHROMATIC_SCALE_SIZE = 12;
 
-    public Scale(String root, List<Integer> scaleInterval){
+    public Scale(String root, String scaleType) {
         this.root = root;
-        this.scaleInterval = scaleInterval;
+        this.scaleType = ScaleType.valueOf(scaleType.toUpperCase());
         this.notes = buildScale();
     }
 
-    public abstract List<Note> buildScale();
-    public List<Note> getNotes() {return notes;}
-    public String getRoot() {return root;}
-    protected ChromaticScale getNoteFromRoot(){
-        return switch (root) {
-            case ("C") -> ChromaticScale.C;
-            case ("Db") -> ChromaticScale.Db;
-            case ("D") -> ChromaticScale.D;
-            case ("Eb") -> ChromaticScale.Eb;
-            case ("E") -> ChromaticScale.E;
-            case ("F") -> ChromaticScale.F;
-            case ("Gb") -> ChromaticScale.Gb;
-            case ("G") -> ChromaticScale.G;
-            case ("Ab") -> ChromaticScale.Ab;
-            case ("A") -> ChromaticScale.A;
-            case ("Bb") -> ChromaticScale.Bb;
-            case ("B") -> ChromaticScale.B;
-            default -> throw new IllegalArgumentException("Not a valid note");
-        };
+    private List<Note> buildScale() {
+        List<Note> builtScale = new ArrayList<>();
+        int currentIndex = ChromaticScale.valueOf(root).ordinal();
+
+        for (int interval : scaleType.getIntervals()) {
+            ChromaticScale chromNote = ChromaticScale.values()[currentIndex % CHROMATIC_SCALE_SIZE];
+            builtScale.add(new Note(chromNote.name()));
+            currentIndex += interval;
+        }
+        return builtScale;
     }
-    /*
-        Questions:
-        how to build a scale off intervals
-        what stores the intervals
-        ScaleFactory scaleFactory = new ScaleFactory();
-        builtScale = scaleFactory.createScale(root, scaleType); //returns a list of notes
-        return builtScale.toString();
-     */
+
+    public List<Note> getNotes() { return notes; }
+    public String getRoot() { return root; }
 }

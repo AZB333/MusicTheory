@@ -10,7 +10,18 @@ public class ScaleTest {
 
     @Test
     public void testMajorScaleConstructor(){
-        MajorScale majorScale = new MajorScale("C");
+        Scale majorScale = new Scale("C", "Major");
+        List<Note> notes = majorScale.getNotes();
+        System.out.println(notes);
+        for(Note note : notes){
+            System.out.println(note.getName() + "\n");
+        }
+        assert(Objects.equals(majorScale.getRoot(), "C"));
+    }
+
+    @Test
+    public void testNaturalMinorScaleConstructor(){
+        Scale majorScale = new Scale("C", "natural_minor");
         List<Note> notes = majorScale.getNotes();
         System.out.println(notes);
         for(Note note : notes){
