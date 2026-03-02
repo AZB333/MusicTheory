@@ -344,7 +344,7 @@ button:active { transform: translateY(0); }
     background: linear-gradient(180deg, #e0e0e0 0%, #d0d0d0 100%);
 }
 
-.white-key.scale-note {
+.white-key.active-note {
     background: yellow !important;
     box-shadow:
             0 4px 8px rgba(0,0,0,0.4),
@@ -386,7 +386,7 @@ button:active { transform: translateY(0); }
             0 0 30px var(--accent-primary);
 }
 
-.black-key.scale-note {
+.black-key.active-note {
     background: yellow !important;
     box-shadow:
             0 6px 12px rgba(0,0,0,0.8),

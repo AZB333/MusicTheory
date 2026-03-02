@@ -29,23 +29,36 @@ function fetchScale(){
         });
 }
 
-function displayOnPiano(scale){
+function fetchChord(){
+    const root = document.getElementById('root').value;
+    const chordType = document.getElementById('chord-type').value;
+
+    fetch(`/chord?root=${root}&chordType=${chordType}`)
+        .then(res => res.json())
+        .then(chord => {
+            const noteNames = chord.notes.map(note => note.name).join('-');
+            document.getElementById('result').innerHTML = `<p>${noteNames}</p>`;
+            displayOnPiano(chord);
+        });
+}
+
+function displayOnPiano(noteCollection){
     const pianoKeys = document.querySelectorAll('ul.piano span');
     const pianoKeyIds = Array.from(pianoKeys).map(pianoKey => pianoKey.id);
     refreshKeys(pianoKeys);
     let noteArray = [];
-    scale.notes.forEach(key => {noteArray.push(key.name)});
+    noteCollection.notes.forEach(key => {noteArray.push(key.name)});
     for (let i = 0; i < pianoKeyIds.length; i++) {
         let noteName = pianoKeyIds[i].replace(/[0-9]+$/, "")
         if (noteArray.includes(noteName)){
-            pianoKeys[i].classList.add("scale-note");
+            pianoKeys[i].classList.add("active-note");
         }
     }
 }
 
 function refreshKeys(pianoKeys){
     for (let i = 0; i < pianoKeys.length; i++) {
-        pianoKeys[i].classList.remove("scale-note")
+        pianoKeys[i].classList.remove("active-note")
         if(pianoKeys[i].classList.contains("white-key")){
             pianoKeys[i].style.background = "linear-gradient(180deg, #fefefe 0%, #e8e8e8 100%)";
         }
