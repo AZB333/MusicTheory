@@ -38,13 +38,14 @@ function displayOnPiano(scale){
     for (let i = 0; i < pianoKeyIds.length; i++) {
         let noteName = pianoKeyIds[i].replace(/[0-9]+$/, "")
         if (noteArray.includes(noteName)){
-            pianoKeys[i].style.background = "yellow";
+            pianoKeys[i].classList.add("scale-note");
         }
     }
 }
 
 function refreshKeys(pianoKeys){
     for (let i = 0; i < pianoKeys.length; i++) {
+        pianoKeys[i].classList.remove("scale-note")
         if(pianoKeys[i].classList.contains("white-key")){
             pianoKeys[i].style.background = "linear-gradient(180deg, #fefefe 0%, #e8e8e8 100%)";
         }
