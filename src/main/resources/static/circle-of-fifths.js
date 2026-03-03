@@ -67,7 +67,7 @@ for (let i = 0; i < N; i++) {
     const midA   = (startA + endA) / 2;
 
     const group = document.createElementNS(NS, 'g');
-    group.setAttribute('data-index', i);
+    group.setAttribute('data-index', i.toString());
     group.style.cursor = 'pointer';
 
 // Outer ring: major
@@ -121,9 +121,9 @@ for (let i = 0; i < N; i++) {
 
 // Center circle
 const centerCircle = document.createElementNS(NS, 'circle');
-centerCircle.setAttribute('cx', 0);
-centerCircle.setAttribute('cy', 0);
-centerCircle.setAttribute('r', R_IN);
+centerCircle.setAttribute('cx', '0');
+centerCircle.setAttribute('cy', '0');
+centerCircle.setAttribute('r', R_IN.toString());
 centerCircle.setAttribute('fill', '#0f1420');
 centerCircle.setAttribute('stroke', '#2a3245');
 centerCircle.setAttribute('stroke-width', '0.008');
@@ -131,8 +131,8 @@ centerCircle.classList.add('center-circle');
 svg.appendChild(centerCircle);
 
 const centerText = document.createElementNS(NS, 'text');
-centerText.setAttribute('x', 0);
-centerText.setAttribute('y', 0);
+centerText.setAttribute('x', '0');
+centerText.setAttribute('y', '0');
 centerText.setAttribute('class', 'center-label');
 centerText.textContent = 'Circle of Fifths';
 svg.appendChild(centerText);
