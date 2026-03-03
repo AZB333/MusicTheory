@@ -21,7 +21,6 @@ public class Chord {
     private List<Note> buildChord() {
         List<Note> builtChord = new ArrayList<>();
         int currentIndex = ChromaticScale.valueOf(root).ordinal();
-
         for (int interval : chordType.getIntervals()) {
             ChromaticScale chromNote = ChromaticScale.values()[currentIndex % CHROMATIC_CHORD_SIZE];
             builtChord.add(new Note(chromNote.name()));
