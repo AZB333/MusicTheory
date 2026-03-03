@@ -3,14 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Music Theory Website - Circle of Fifths</title>
-    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Circle of Fifths</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=EB+Garamond:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/circle-of-fifths.css">
     <link rel="stylesheet" href="css/style.css">
-    <base href="/circle-of-fifths" />
+
+
 </head>
 <body>
-<div class="container">
+<div class="page">
+
+    <div class="rotate-prompt">
+        <span>⟳</span>
+        <p>Please rotate your device</p>
+    </div>
+
     <header>
         <h1>Music Theory Website</h1>
     </header>
@@ -24,14 +31,14 @@
         <a class="active" href="circle-of-fifths.html">Circle of Fifths</a>
     </nav>
 
-    <footer>
-        <div class="social-links">
-            <a target="_blank" href="https://github.com/azb333">GitHub</a>
-            <a target="_blank" href="https://www.linkedin.com/in/aleqzanderbaker/">LinkedIn</a>
+    <div class="fifths-container">
+        <div class="info-panel" id="infoPanel">
         </div>
-    </footer>
+        <svg id="circle" viewBox="-1 -1 2 2"></svg>
+
+    </div>
 </div>
 
-<script src="/index.js"></script>
+<script src="circle-of-fifths.js"></script>
 </body>
 </html>
