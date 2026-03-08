@@ -2,6 +2,7 @@ package musictheory.chords;
 
 import musictheory.notes.Note;
 import musictheory.scales.ChromaticScale;
+import musictheory.scales.ScaleDegree;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -18,6 +19,11 @@ public class Chord {
         this.notes = buildChord();
     }
 
+    @Override
+    public String toString(){
+        return root.toUpperCase() + " " + this.chordType;
+    }
+
     private List<Note> buildChord() {
         List<Note> builtChord = new ArrayList<>();
         int currentIndex = ChromaticScale.valueOf(root).ordinal();
@@ -28,7 +34,5 @@ public class Chord {
         }
         return builtChord;
     }
-
-    public List<Note> getNotes() { return notes; }
     public String getRoot() { return root; }
 }
