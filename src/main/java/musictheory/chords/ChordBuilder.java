@@ -8,38 +8,23 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
-public class ChordProgression {
+public class ChordBuilder {
     private final List<Chord> chordSequence;
-    private final String root;
     private static final char DELIMITER = '_';
-    public ChordProgression(String root, String progression){
-        this.root = root;
-        StringBuilder stringProgression = new StringBuilder(progression);
-        this.chordSequence = generateChords(root, stringProgression);
+    public ChordBuilder(String root, String progression){
+        this.chordSequence = generateChords(root, progression);
     }
 
-    public List<Chord> generateChords(String root, StringBuilder progression){
-        List<String> chordDegrees = new ArrayList<>();
+    public List<Chord> getChords(){return chordSequence;}
+
+    private List<Chord> generateChords(String root, String progression){
+        String[] chordDegrees = progression.split(String.valueOf(DELIMITER));
         List<Chord> chords = new ArrayList<>();
-        for(int i = 0; i < progression.length(); i++){
-            StringBuilder currChord = new StringBuilder();
-            for(int j = i; j < progression.length(); j++){
-                if(progression.charAt(j) == DELIMITER){
-                    i = j;
-                    break;
-                }
-                currChord.append(progression.charAt(j));
-            }
-            chordDegrees.add(String.valueOf(currChord));
-        }
         for(String chordDegree : chordDegrees){
             String currentChordName = getChordNameFromRomanNumeral(root, chordDegree);
             String currentChordType = getChordTypeFromRomanNumeral(chordDegree);
             Chord chord = new Chord(currentChordName, currentChordType);
             chords.add(chord);
-        }
-        for(Chord chord : chords){
-            System.out.println(chord.toString());
         }
         return chords;
     }
@@ -57,6 +42,14 @@ public class ChordProgression {
             return "major";
         }
         return "minor";
+    }
+
+    @Override
+    public String toString(){
+        for(Chord chord : getChords()){
+            System.out.println(chord);
+        }
+        return "";
     }
 
 
