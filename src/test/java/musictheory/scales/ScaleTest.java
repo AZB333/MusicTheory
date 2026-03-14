@@ -14,7 +14,7 @@ public class ScaleTest {
         List<Note> notes = majorScale.getNotes();
         System.out.println(notes);
         for(Note note : notes){
-            System.out.println(note.getName() + "\n");
+            System.out.println(note.name() + "\n");
         }
         assert(Objects.equals(majorScale.getRoot(), "C"));
     }
@@ -25,7 +25,7 @@ public class ScaleTest {
         List<Note> notes = majorScale.getNotes();
         System.out.println(notes);
         for(Note note : notes){
-            System.out.println(note.getName() + "\n");
+            System.out.println(note.name() + "\n");
         }
         assert(Objects.equals(majorScale.getRoot(), "C"));
     }

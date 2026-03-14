@@ -29,6 +29,6 @@ public class Scale {
         return builtScale;
     }
 
-    public List<Note> getNotes() { return notes; }
+    public List<Note> getNotes() { return List.copyOf(notes); }
     public String getRoot() { return root; }
 }

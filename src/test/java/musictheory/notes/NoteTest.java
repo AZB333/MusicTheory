@@ -9,7 +9,7 @@ public class NoteTest {
     @Test
     public void testNoteConstructor(){
         Note cNote = new Note("C");
-        assert(Objects.equals(cNote.getName(), "C"));
+        assert(Objects.equals(cNote.name(), "C"));
 
     }
 }
