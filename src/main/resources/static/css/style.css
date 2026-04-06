@@ -422,6 +422,162 @@ footer {
     text-shadow: 0 0 10px var(--glow-secondary);
 }
 
+.hero {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    min-height: 38vh;
+    padding: 3rem 0 2rem;
+    animation: fadeInDown 0.7s ease both;
+}
+
+.hero-eyebrow {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.3em;
+    color: var(--accent-primary);
+    text-shadow: 0 0 12px var(--glow-primary);
+    margin-bottom: 0.8rem;
+}
+
+.hero h1 {
+    font-family: 'Syne', sans-serif;
+    font-size: clamp(2.8rem, 8vw, 6rem);
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    line-height: 1.05;
+    background: linear-gradient(135deg, var(--accent-primary) 0%, var(--accent-secondary) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: titleGlow 3s ease-in-out infinite;
+    margin-bottom: 1rem;
+}
+
+.hero-sub {
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+    max-width: 520px;
+    line-height: 1.8;
+    letter-spacing: 0.02em;
+}
+
+.hero-sub span {
+    color: var(--accent-secondary);
+}
+
+/* Card grid */
+.card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.2rem;
+    margin: 2.5rem 0;
+    animation: fadeInUp 0.8s ease 0.2s both;
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+    padding: 1.6rem;
+    background: var(--bg-secondary);
+    border: 2px solid var(--border-color);
+    border-radius: 12px;
+    text-decoration: none;
+    color: var(--text-primary);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 2px;
+    background: linear-gradient(90deg, var(--accent-primary), var(--accent-secondary));
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.35s ease;
+}
+
+.card:hover::before { transform: scaleX(1); }
+
+.card:hover {
+    border-color: var(--accent-secondary);
+    transform: translateY(-4px);
+    box-shadow: 0 12px 32px rgba(0, 255, 255, 0.12);
+    background: var(--bg-tertiary);
+}
+
+.card-icon {
+    font-size: 1.8rem;
+    line-height: 1;
+}
+
+.card-title {
+    font-family: 'Syne', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    letter-spacing: 0.01em;
+}
+
+.card-desc {
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+    line-height: 1.7;
+    letter-spacing: 0.02em;
+}
+
+.card-arrow {
+    margin-top: auto;
+    padding-top: 0.8rem;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--accent-secondary);
+    opacity: 0;
+    transform: translateX(-6px);
+    transition: all 0.25s ease;
+}
+
+.card:hover .card-arrow {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.card.featured {
+    border-color: rgba(255, 0, 255, 0.4);
+    background: linear-gradient(135deg, rgba(255,0,255,0.06) 0%, rgba(0,255,255,0.04) 100%);
+}
+
+.card.featured:hover {
+    border-color: var(--accent-primary);
+    box-shadow: 0 12px 32px rgba(255, 0, 255, 0.15);
+}
+
+.card.featured .card-arrow { color: var(--accent-primary); }
+
+.section-label {
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.25em;
+    color: var(--text-secondary);
+    margin: 2.5rem 0 1rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.section-label::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--border-color);
+}
+
 /* ── Responsive ── */
 @media (max-width: 1024px) {
     .piano { gap: 1px; }

@@ -35,4 +35,5 @@ public class Chord {
         return builtChord;
     }
     public String getRoot() { return root; }
+    public String getType() {return chordType.name();}
 }

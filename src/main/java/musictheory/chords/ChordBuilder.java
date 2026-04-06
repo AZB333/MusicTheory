@@ -46,10 +46,11 @@ public class ChordBuilder {
 
     @Override
     public String toString(){
+        StringBuilder chordsBuilder = new StringBuilder();
         for(Chord chord : getChords()){
-            System.out.println(chord);
+            chordsBuilder.append(chord).append("\n");
         }
-        return "";
+        return chordsBuilder.toString();
     }
 
 
