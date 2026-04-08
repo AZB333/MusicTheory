@@ -1,15 +1,3 @@
-function fetchNote() {
-    const name = document.getElementById('name-input').value;
-    fetch(`/note?name=${name}`)
-
-        .then(res => res.json())
-        .then(note => {
-            document.getElementById('result').innerHTML = `
-                    <p>Note Name: ${note.name}</p>
-                `;
-        });
-}
-
 function playNote(audioFile) {
     const note = new Audio(audioFile);
     note.currentTime = 0;
@@ -50,7 +38,6 @@ function fetchProgression(){
         .then(res => res.json())
         .then(progression => {
             const chordNames = progression.chords.map(chord => chord.displayName).join(" - ");
-            console.log(chordNames);
             document.getElementById('result').innerHTML = `<p>${chordNames}</p>`;
             // displayOnPiano(progression);
         });
@@ -81,3 +68,70 @@ function refreshKeys(pianoKeys){
         }
     }
 }
+
+function drawPiano(){
+    const pianoContainer = document.getElementById("piano-container");
+    pianoContainer.innerHTML = `
+    <!-- Piano Keyboard -->
+        <div class="piano-wrapper">
+            <ul class="piano">
+                <li class="key">
+                    <span onclick="playNote('audiofiles/C3.wav')" class="white-key" id="C3"></span>
+                    <span onclick="playNote('audiofiles/Db3.wav')" class="black-key" id="Db3"></span>
+                </li>
+                <li class="key">
+                    <span onclick="playNote('audiofiles/D3.wav')" class="white-key" id="D3"></span>
+                    <span onclick="playNote('audiofiles/Eb3.wav')" class="black-key" id="Eb3"></span>
+                </li>
+                <li class="key">
+                    <span onclick="playNote('audiofiles/E3.wav')" class="white-key" id="E3"></span>
+                </li>
+                <li class="key">
+                    <span onclick="playNote('audiofiles/F3.wav')" class="white-key" id="F3"></span>
+                    <span onclick="playNote('audiofiles/Gb3.wav')" class="black-key" id="Gb3"></span>
+                </li>
+                <li class="key">
+                    <span onclick="playNote('audiofiles/G3.wav')" class="white-key" id="G3"></span>
+                    <span onclick="playNote('audiofiles/Ab3.wav')" class="black-key" id="Ab3"></span>
+                </li>
+                <li class="key">
+                    <span onclick="playNote('audiofiles/A3.wav')" class="white-key" id="A3"></span>
+                    <span onclick="playNote('audiofiles/Bb3.wav')" class="black-key" id="Bb3"></span>
+                </li>
+                <li class="key">
+                    <span onclick="playNote('audiofiles/B3.wav')" class="white-key" id="B3"></span>
+                </li>
+                <li class="key">
+                    <span onclick="playNote('audiofiles/C4.wav')" class="white-key" id="C4"></span>
+                    <span onclick="playNote('audiofiles/Db4.wav')" class="black-key" id="Db4"></span>
+                </li>
+                <li class="key">
+                    <span onclick="playNote('audiofiles/D4.wav')" class="white-key" id="D4"></span>
+                    <span onclick="playNote('audiofiles/Eb4.wav')" class="black-key" id="Eb4"></span>
+                </li>
+                <li class="key">
+                    <span onclick="playNote('audiofiles/E4.wav')" class="white-key" id="E4"></span>
+                </li>
+                <li class="key">
+                    <span onclick="playNote('audiofiles/F4.wav')" class="white-key" id="F4"></span>
+                    <span onclick="playNote('audiofiles/Gb4.wav')" class="black-key" id="Gb4"></span>
+                </li>
+                <li class="key">
+                    <span onclick="playNote('audiofiles/G4.wav')" class="white-key" id="G4"></span>
+                    <span onclick="playNote('audiofiles/Ab4.wav')" class="black-key" id="Ab4"></span>
+                </li>
+                <li class="key">
+                    <span onclick="playNote('audiofiles/A4.wav')" class="white-key" id="A4"></span>
+                    <span onclick="playNote('audiofiles/Bb4.wav')" class="black-key" id="Bb4"></span>
+                </li>
+                <li class="key">
+                    <span onclick="playNote('audiofiles/B4.wav')" class="white-key" id="B4"></span>
+                </li>
+            </ul>
+        </div>
+   `
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    drawPiano();
+});
