@@ -42,6 +42,20 @@ function fetchChord(){
         });
 }
 
+function fetchProgression(){
+    const root = document.getElementById('root').value;
+    const chordType = document.getElementById('progression-type').value;
+
+    fetch(`/progression?root=${root}&progressionType=${chordType}`)
+        .then(res => res.json())
+        .then(progression => {
+            const chordNames = progression.chords.map(chord => chord.displayName).join(" - ");
+            console.log(chordNames);
+            document.getElementById('result').innerHTML = `<p>${chordNames}</p>`;
+            // displayOnPiano(progression);
+        });
+}
+
 function displayOnPiano(noteCollection){
     const pianoKeys = document.querySelectorAll('ul.piano span');
     const pianoKeyIds = Array.from(pianoKeys).map(pianoKey => pianoKey.id);

@@ -15,7 +15,9 @@ public class ChordBuilder {
         this.chordSequence = generateChords(root, progression);
     }
 
-    public List<Chord> getChords(){return chordSequence;}
+    public List<Chord> getChords(){
+        return chordSequence;
+    }
 
     private List<Chord> generateChords(String root, String progression){
         String[] chordDegrees = progression.split(String.valueOf(DELIMITER));
@@ -31,7 +33,7 @@ public class ChordBuilder {
 
     public static String getChordNameFromRomanNumeral(String root, String degree){
         ScaleDegree currentDegree = ScaleDegree.valueOf(degree);
-        Scale rootScale = new Scale(root, "major");
+        Scale rootScale = new Scale(root, "major"); //type is arbitrary
         List<Note> scaleNotes = rootScale.getNotes();
         int scaleDegreeValue = currentDegree.getScaleDegree();
         Note targetNote = scaleNotes.get(scaleDegreeValue - 1);

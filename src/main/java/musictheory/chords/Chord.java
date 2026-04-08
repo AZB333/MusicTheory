@@ -19,6 +19,12 @@ public class Chord {
         this.notes = buildChord();
     }
 
+    public String getDisplayName() {
+        return root.toUpperCase() + chordType;
+    }
+
+    public List<Note> getNotes(){ return notes;}
+
     @Override
     public String toString(){
         return root.toUpperCase() + " " + this.chordType;

@@ -8,4 +8,5 @@ public record Note(String name) {
             default -> throw new IllegalArgumentException("Not a valid note");
         }
     }
+    public String getName(){ return name;}
 }
