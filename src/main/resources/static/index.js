@@ -1,5 +1,8 @@
 document.addEventListener('DOMContentLoaded', () => {
-    drawPiano();
+    const pianoDiv = document.getElementById("piano-container");
+    if(pianoDiv != null){
+        drawPiano();
+    }
 });
 
 function playNote(audioFile) {
@@ -12,7 +15,7 @@ function playChord(){
     const root = document.getElementById('root').value;
     const chordType = document.getElementById('chord-type').value;
     console.log("root value in method is " + root + " chord type in method is " + chordType);
-    const audioFile = `audiofiles/chords/${chordType.toLowerCase()}/${root}4${chordType}Inversion0.wav`;
+    const audioFile = `audiofiles/chords/${chordType.toLowerCase()}/${root}4${chordType.toLowerCase()}Inversion0.wav`;
     const chordAudio = new Audio(audioFile);
     chordAudio.currentTime = 0;
     chordAudio.play().then(r => r);
@@ -44,11 +47,35 @@ function fetchScale(){
         });
 }
 
+function playProgression() {
+    const root = document.getElementById('root').value;
+    const progressionType = document.getElementById('progression-type').value;
+
+    fetch(`/progression?root=${root}&progressionType=${progressionType}`)
+        .then(res => res.json())
+        .then(progression => {
+            const chordNames = progression.chords.map(chord => chord.displayName).join(" - ");
+            document.getElementById('result').innerHTML = `<p>${chordNames}</p>`;
+
+            let index = 0;
+            function playNext() {
+                if (index >= progression.chords.length) return;
+                const chord = progression.chords[index];
+                const audioFile = `audiofiles/chords/${chord.type.toLowerCase()}/${chord.root.toLowerCase()}4${chord.type.toLowerCase()}Inversion0.wav`;
+                const audio = new Audio(audioFile);
+                audio.play();
+                index++;
+                audio.onended = playNext; //wait for one audio to end before starting another
+            }
+            playNext();
+        });
+}
+
 function fetchProgression(){
     const root = document.getElementById('root').value;
-    const chordType = document.getElementById('progression-type').value;
+    const progressionType = document.getElementById('progression-type').value;
 
-    fetch(`/progression?root=${root}&progressionType=${chordType}`)
+    fetch(`/progression?root=${root}&progressionType=${progressionType}`)
         .then(res => res.json())
         .then(progression => {
             const chordNames = progression.chords.map(chord => chord.displayName).join(" - ");
