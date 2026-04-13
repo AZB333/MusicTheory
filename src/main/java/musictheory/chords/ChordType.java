@@ -14,8 +14,19 @@ public enum ChordType {
     SUS_TWO(new int[]{2, 5, 5}),
     SUS_FOUR(new int[]{5, 1, 5});
 
+    static {
+        MAJOR.nextExtension = MAJOR_SEVENTH;
+        MINOR.nextExtension= MINOR_SEVENTH;
+        DOMINANT_SEVENTH.nextExtension = HALF_DIMINISHED_SEVENTH;
+        //all the rest
+    }
+
 
     private final int[] intervals;
-    ChordType(int[] intervals) { this.intervals = intervals; }
+    private ChordType nextExtension;
+    ChordType(int[] intervals) {
+        this.intervals = intervals;
+    }
     public int[] getIntervals() { return intervals; }
+    public ChordType getNextExtension() {return nextExtension;}
 }

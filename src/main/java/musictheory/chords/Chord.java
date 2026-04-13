@@ -42,4 +42,10 @@ public class Chord {
     }
     public String getRoot() { return root; }
     public String getType() {return chordType.name();}
+    public ChordType getChordType() {return chordType;}
+    public Chord bedazzle() {
+        ChordType next = chordType.getNextExtension();
+        if (next == null) return this; // already at max extension
+        return new Chord(this.getRoot(), next.name());
+    }
 }

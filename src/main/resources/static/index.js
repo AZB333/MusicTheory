@@ -27,6 +27,7 @@ function playChord(){
 function fetchChord(){
     const root = document.getElementById('root').value;
     const chordType = document.getElementById('chord-type').value;
+    let currentChord;
 
     fetch(`/chord?root=${root}&chordType=${chordType}`)
         .then(res => res.json())
@@ -34,25 +35,21 @@ function fetchChord(){
             const noteNames = chord.notes.map(note => note.name).join('-');
             document.getElementById('result').innerHTML = `<p>${noteNames}</p>`;
             displayOnPiano(chord);
+            currentChord = chord;
         });
+    return currentChord;
 }
 
-function fancifyChord(){
+function bedazzleChord() {
     const root = document.getElementById('root').value;
     const chordType = document.getElementById('chord-type').value;
-    let fancyChordType = "";
-    if(chordType === "major"){
-        fancyChordType = "major_seventh";
-    }
-    if(chordType === "minor"){
-        fancyChordType = "minor_seventh";
-    }
-    fetch(`/chord?root=${root}&chordType=${fancyChordType}`)
+
+    fetch(`/chord/bedazzle?root=${root}&chordType=${chordType}`)
         .then(res => res.json())
-        .then(chord => {
-            const noteNames = chord.notes.map(note => note.name).join('-');
+        .then(bedazzledChord => {
+            const noteNames = bedazzledChord.notes.map(note => note.name).join('-');
             document.getElementById('result').innerHTML = `<p>${noteNames}</p>`;
-            displayOnPiano(chord);
+            displayOnPiano(bedazzledChord);
         });
 }
 
