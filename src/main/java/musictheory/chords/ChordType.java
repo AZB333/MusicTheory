@@ -9,16 +9,23 @@ public enum ChordType {
     MINOR_SEVENTH(new int[]{3, 4, 3, 2}),
     DOMINANT_SEVENTH(new int[]{4, 3, 3, 2}),
     DIMINISHED_SEVENTH(new int[]{3, 3, 3, 3}),
-    HALF_DIMINISHED_SEVENTH(new int[]{}),
+    HALF_DIMINISHED_SEVENTH(new int[]{3, 3, 3, 4}),
     MINOR_MAJOR_SEVENTH(new int[]{3, 4, 4, 1}),
     SUS_TWO(new int[]{2, 5, 5}),
-    SUS_FOUR(new int[]{5, 1, 5});
+    SUS_FOUR(new int[]{5, 1, 5}),
+    MAJOR_NINTH(new int[]{4, 3, 4, 3, 2}),
+    MINOR_NINTH(new int[]{3, 4, 3, 4, 2});
+
 
     static {
         MAJOR.nextExtension = MAJOR_SEVENTH;
         MINOR.nextExtension= MINOR_SEVENTH;
-        DOMINANT_SEVENTH.nextExtension = HALF_DIMINISHED_SEVENTH;
-        //all the rest
+        DOMINANT_SEVENTH.nextExtension = DIMINISHED_SEVENTH;
+//        DIMINISHED
+//        AUGMENTED
+        MAJOR_SEVENTH.nextExtension = MAJOR_NINTH;
+        MINOR_SEVENTH.nextExtension = MINOR_NINTH;
+//        DIMINISHED_SEVENTH
     }
 
 
