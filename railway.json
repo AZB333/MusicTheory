@@ -1,0 +1,9 @@
+{
+  "build": {
+    "builder": "NIXPACKS",
+    "buildCommand": "java -version && ./gradlew clean build -x test"
+  },
+  "deploy": {
+    "startCommand": "java -jar build/libs/*.jar"
+  }
+}
