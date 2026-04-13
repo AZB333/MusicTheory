@@ -5,6 +5,9 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 });
 
+const sleep = (ms) => new Promise(resolve => setTimeout(resolve, ms));
+
+
 function playNote(audioFile) {
     const note = new Audio(audioFile);
     note.currentTime = 0;
@@ -26,6 +29,25 @@ function fetchChord(){
     const chordType = document.getElementById('chord-type').value;
 
     fetch(`/chord?root=${root}&chordType=${chordType}`)
+        .then(res => res.json())
+        .then(chord => {
+            const noteNames = chord.notes.map(note => note.name).join('-');
+            document.getElementById('result').innerHTML = `<p>${noteNames}</p>`;
+            displayOnPiano(chord);
+        });
+}
+
+function fancifyChord(){
+    const root = document.getElementById('root').value;
+    const chordType = document.getElementById('chord-type').value;
+    let fancyChordType = "";
+    if(chordType === "major"){
+        fancyChordType = "major_seventh";
+    }
+    if(chordType === "minor"){
+        fancyChordType = "minor_seventh";
+    }
+    fetch(`/chord?root=${root}&chordType=${fancyChordType}`)
         .then(res => res.json())
         .then(chord => {
             const noteNames = chord.notes.map(note => note.name).join('-');
@@ -65,7 +87,7 @@ function playProgression() {
                 const audio = new Audio(audioFile);
                 audio.play();
                 index++;
-                audio.onended = playNext; //wait for one audio to end before starting another
+                setTimeout(playNext, 1500); // play next chord after 1.5 seconds
             }
             playNext();
         });
