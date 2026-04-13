@@ -24,39 +24,43 @@
         <a href="circle-of-fifths.html">Circle of Fifths</a>
     </nav>
 
-    <label for="root">Choose a root note:</label>
-    <select name="root" id="root">
-        <option value="C" selected>C</option>
-        <option value="Db" >C#/Db</option>
-        <option value="D">D</option>
-        <option value="Eb">D#/Eb</option>
-        <option value="E">E</option>
-        <option value="F">F</option>
-        <option value="Gb">F#/Gb</option>
-        <option value="G">G</option>
-        <option value="Ab">G#/Ab</option>
-        <option value="A">A</option>
-        <option value="Bb">A#/Bb</option>
-        <option value="B">B</option>
-    </select>
+    <div class="select-group">
+        <div class="select-wrapper">
+            <label for="root">Root Note</label>
+            <select name="root" id="root" onchange="fetchChord()">
+                <option value="C" selected>C</option>
+                <option value="Db">C# / Db</option>
+                <option value="D">D</option>
+                <option value="Eb">D# / Eb</option>
+                <option value="E">E</option>
+                <option value="F">F</option>
+                <option value="Gb">F# / Gb</option>
+                <option value="G">G</option>
+                <option value="Ab">G# / Ab</option>
+                <option value="A">A</option>
+                <option value="Bb">A# / Bb</option>
+                <option value="B">B</option>
+            </select>
+        </div>
 
-    <label for="chord-type">Choose a scale type:</label>
-    <select name="chord-type" id="chord-type">
-        <option value="major" selected>Major</option>
-        <option value="minor" >Minor</option>
-        <option value="sus_two">Sus Two</option>
-        <option value="sus_four">Sus Four</option>
-        <option value="augmented">Augmented</option>
-        <option value="diminished">Diminished</option>
-        <option value="major_seventh">Major Seventh</option>
-        <option value="minor_seventh">Minor Seventh</option>
-        <option value="dominant_seventh">Dominant Seventh</option>
-        <option value="diminished_seventh">Diminished Seventh</option>
-        <option value="half_diminished_seventh">Half Diminished Seventh</option>
-        <option value="minor_major_seventh">Minor Major Seventh</option>
-    </select>
-
-    <button onclick="fetchChord()">Get Chord</button>
+        <div class="select-wrapper">
+            <label for="chord-type">Chord Type</label>
+            <select name="chord-type" id="chord-type" onchange="fetchChord()">
+                <option value="major" selected>Major</option>
+                <option value="minor">Minor</option>
+                <option value="sus_two">Sus Two</option>
+                <option value="sus_four">Sus Four</option>
+                <option value="augmented">Augmented</option>
+                <option value="diminished">Diminished</option>
+                <option value="major_seventh">Major Seventh</option>
+                <option value="minor_seventh">Minor Seventh</option>
+                <option value="dominant_seventh">Dominant Seventh</option>
+                <option value="diminished_seventh">Diminished Seventh</option>
+                <option value="half_diminished_seventh">Half Diminished Seventh</option>
+                <option value="minor_major_seventh">Minor Major Seventh</option>
+            </select>
+        </div>
+    </div>
     <button onclick="playChord()">Play Chord</button>
     <button onclick="bedazzleChord()">Bedazzle Chord</button>
 

@@ -3,10 +3,21 @@ document.addEventListener('DOMContentLoaded', () => {
     if(pianoDiv != null){
         drawPiano();
     }
+    const chordTypeSelect = document.getElementById('chord-type');
+    if(chordTypeSelect != null){
+        fetchChord();
+    }
+
+    const scaleTypeSelect = document.getElementById("scale-type");
+    if(scaleTypeSelect != null){
+        fetchScale();
+    }
+
+    const progressionTypeSelect = document.getElementById("progression-type");
+    if(progressionTypeSelect != null){
+        fetchProgression();
+    }
 });
-
-const sleep = (ms) => new Promise(resolve => setTimeout(resolve, ms));
-
 
 function playNote(audioFile) {
     const note = new Audio(audioFile);
@@ -49,6 +60,7 @@ function bedazzleChord() {
         .then(bedazzledChord => {
             const noteNames = bedazzledChord.notes.map(note => note.name).join('-');
             document.getElementById('result').innerHTML = `<p>${noteNames}</p>`;
+            document.getElementById('chord-type').value = bedazzledChord.type.toLowerCase();
             displayOnPiano(bedazzledChord);
         });
 }
