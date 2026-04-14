@@ -29,7 +29,7 @@ function playChord(){
     const root = document.getElementById('root').value;
     const chordType = document.getElementById('chord-type').value;
     console.log("root value in method is " + root + " chord type in method is " + chordType);
-    const audioFile = `audiofiles/chords/${chordType.toLowerCase()}/${root}4${chordType.toLowerCase()}Inversion0.wav`;
+    const audioFile = `audiofiles/chords/${chordType.toLowerCase()}/${root}4${chordType}Inversion0.wav`;
     const chordAudio = new Audio(audioFile);
     chordAudio.currentTime = 0;
     chordAudio.play().then(r => r);

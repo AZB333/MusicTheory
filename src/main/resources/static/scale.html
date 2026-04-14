@@ -27,7 +27,7 @@
     <div class="select-group">
         <div class="select-wrapper">
             <label for="root">Choose a root note:</label>
-            <select name="root" id="root">
+            <select name="root" id="root" onchange="fetchScale()">
                 <option value="C" selected>C</option>
                 <option value="Db" >C#/Db</option>
                 <option value="D">D</option>
@@ -45,7 +45,7 @@
 
             <div class="select-wrapper">
             <label for="scale-type">Choose a scale type:</label>
-            <select name="scale-type" id="scale-type">
+            <select name="scale-type" id="scale-type" onchange="fetchScale()">
                 <option value="major" selected>Major</option>
                 <option value="natural_minor" >Minor</option>
                 <option value="harmonic_minor">Harmonic Minor</option>
