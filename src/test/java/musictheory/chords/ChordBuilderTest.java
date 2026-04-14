@@ -16,6 +16,6 @@ public class ChordBuilderTest {
         List<Chord> chords = chordBuilder.getChords();
         assert(Objects.equals(chords.get(0).getRoot(), "C"));
         assert(Objects.equals(chords.get(chords.size() - 1).getRoot(), "F"));
-        assert(Objects.equals(chords.get(chords.size() - 1).getType(), "MINOR"));
+        assert(Objects.equals(chords.get(chords.size() - 1).getType(), ChordType.MINOR));
     }
 }

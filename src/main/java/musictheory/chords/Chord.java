@@ -41,8 +41,7 @@ public class Chord {
         return builtChord;
     }
     public String getRoot() { return root; }
-    public String getType() {return chordType.name();}
-    public ChordType getChordType() {return chordType;}
+    public ChordType getType() {return chordType;}
     public Chord bedazzle() {
         ChordType next = chordType.getNextExtension();
         if (next == null) return this; // already at max extension
