@@ -24,28 +24,35 @@
         <a href="circle-of-fifths.html">Circle of Fifths</a>
     </nav>
 
-    <label for="root">Choose a root note:</label>
-    <select name="root" id="root" onchange="fetchProgression()">
-        <option value="C" selected>C</option>
-        <option value="Db" >C#/Db</option>
-        <option value="D">D</option>
-        <option value="Eb">D#/Eb</option>
-        <option value="E">E</option>
-        <option value="F">F</option>
-        <option value="Gb">F#/Gb</option>
-        <option value="G">G</option>
-        <option value="Ab">G#/Ab</option>
-        <option value="A">A</option>
-        <option value="Bb">A#/Bb</option>
-        <option value="B">B</option>
-    </select>
 
-    <label for="progression-type">Choose a scale type:</label>
-    <select name="progression-type" id="progression-type" onchange="fetchProgression()">
-        <option value="I_IV_V" selected>I-IV-V</option>
-        <option value="I_iv_IV_V" selected>I-vi-IV-V</option>
-        <option value="ii_V_I" selected>ii-V-I</option>
-    </select>
+    <div class="select-group">
+        <div class="select-wrapper">
+            <label for="root">Choose a root note:</label>
+            <select name="root" id="root" onchange="fetchProgression()">
+                <option value="C" selected>C</option>
+                <option value="Db" >C#/Db</option>
+                <option value="D">D</option>
+                <option value="Eb">D#/Eb</option>
+                <option value="E">E</option>
+                <option value="F">F</option>
+                <option value="Gb">F#/Gb</option>
+                <option value="G">G</option>
+                <option value="Ab">G#/Ab</option>
+                <option value="A">A</option>
+                <option value="Bb">A#/Bb</option>
+                <option value="B">B</option>
+            </select>
+
+            <div class="select-wrapper">
+                <label for="progression-type">Choose a scale type:</label>
+                <select name="progression-type" id="progression-type" onchange="fetchProgression()">
+                    <option value="I_IV_V" selected>I-IV-V</option>
+                    <option value="I_iv_IV_V" selected>I-vi-IV-V</option>
+                    <option value="ii_V_I" selected>ii-V-I</option>
+                </select>
+            </div>
+        </div>
+    </div>
 
     <button onclick="playProgression()">Play Progression</button>
 
